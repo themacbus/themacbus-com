@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Moon, Sun, ChevronDown } from "lucide-react";
 
@@ -6,6 +6,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dark, setDark] = useState(() => localStorage.getItem("theme") === "dark");
+  const dropdownRef = useRef(null);
 
   const toggleDarkMode = () => {
     const newDark = !dark;
@@ -22,29 +23,44 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   const location = useLocation();
-  useEffect(() => closeMenu(), [location.pathname]);
+  useEffect(() => {
+    closeMenu();
+    setDropdownOpen(false);
+  }, [location.pathname]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <header className="bg-gray-800 dark:bg-gray-900 text-white sticky top-0 z-50 shadow transition duration-300">
+    <header className="bg-gray-800 dark:bg-gray-900 text-white sticky top-0 z-50 shadow-md transition duration-300">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold">
+        <Link to="/" className="text-2xl font-bold hover:text-yellow-400 transition">
           TheMACBus.com
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6 items-center relative">
-          <div className="relative">
+          <div ref={dropdownRef} className="relative">
             <button
+              aria-haspopup="true"
+              aria-expanded={dropdownOpen}
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center hover:text-yellow-400 transition"
+              className="flex items-center focus:outline-none hover:text-yellow-400 transition"
             >
               MAC Bus Services <ChevronDown className="ml-1 h-4 w-4" />
             </button>
             <div
-              className={`absolute bg-gray-700 dark:bg-gray-800 mt-2 rounded shadow-lg transform transition-all duration-200 ease-out origin-top opacity-0 scale-95 z-20 ${
-                dropdownOpen ? "opacity-100 scale-100" : "pointer-events-none"
+              className={`absolute bg-gray-700 dark:bg-gray-800 mt-2 rounded shadow-lg transform transition-all duration-200 ease-out origin-top ${
+                dropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
               }`}
-              onMouseLeave={() => setDropdownOpen(false)}
             >
               <Link
                 to="/routes"
@@ -75,15 +91,21 @@ export default function Navbar() {
 
           <button
             onClick={toggleDarkMode}
-            className="hover:text-yellow-400 transition"
+            className="hover:text-yellow-400 transition focus:outline-none"
             title="Toggle dark mode"
+            aria-label="Toggle dark mode"
           >
             {dark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
         </nav>
 
         {/* Mobile Hamburger */}
-        <button onClick={toggleMenu} className="md:hidden transition-transform">
+        <button
+          onClick={toggleMenu}
+          className="md:hidden transition-transform focus:outline-none"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+        >
           {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
@@ -94,27 +116,39 @@ export default function Navbar() {
           isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-4 pb-4 pt-2 flex flex-col space-y-3 text-white">
-          <Link to="/routes" className="hover:text-yellow-400">
+        <nav className="px-4 pb-4 pt-2 flex flex-col space-y-3 text-white">
+          <Link to="/routes" className="hover:text-yellow-400" onClick={closeMenu}>
             View Routes
           </Link>
-          <Link to="/invest" className="hover:text-yellow-400">
+          <Link to="/invest" className="hover:text-yellow-400" onClick={closeMenu}>
             Invest in Mobility
           </Link>
-          <Link to="/community" className="hover:text-yellow-400">
+          <Link to="/community" className="hover:text-yellow-400" onClick={closeMenu}>
             Our Future
           </Link>
-          <Link to="/sponsor" className="hover:text-yellow-400">
+          <Link to="/sponsor" className="hover:text-yellow-400" onClick={closeMenu}>
             Partner With Us
           </Link>
           <button
-            onClick={toggleDarkMode}
-            className="mt-2 inline-flex items-center hover:text-yellow-400"
+            onClick={() => {
+              toggleDarkMode();
+              closeMenu();
+            }}
+            className="mt-2 inline-flex items-center hover:text-yellow-400 focus:outline-none"
           >
-            {dark ? <Sun size={18} className="mr-2" /> : <Moon size={18} className="mr-2" />}
-            {dark ? "Light Mode" : "Dark Mode"}
+            {dark ? (
+              <>
+                <Sun size={18} className="mr-2" />
+                Light Mode
+              </>
+            ) : (
+              <>
+                <Moon size={18} className="mr-2" />
+                Dark Mode
+              </>
+            )}
           </button>
-        </div>
+        </nav>
       </div>
     </header>
   );
