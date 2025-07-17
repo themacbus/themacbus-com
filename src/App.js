@@ -6,6 +6,8 @@ import RoutesPage from "./pages/RoutesPage";
 import InvestPage from "./pages/InvestPage";
 import CommunityPage from "./pages/CommunityPage";
 import SponsorPage from "./pages/SponsorPage";
+import HomePage from "./pages/HomePage";
+
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
         <Route path="/invest" element={<InvestPage />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/sponsor" element={<SponsorPage />} />
+<Route path="/" element={<HomePage />} />
+
         <Route
           path="/"
           element={
