@@ -43,7 +43,7 @@ export default function Navbar() {
     <header className="bg-gray-800 dark:bg-gray-900 text-white sticky top-0 z-50 shadow-md transition duration-300">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold hover:text-yellow-400 transition">
-          TheMACBus.com
+          The Transporter
         </Link>
 
         {/* Desktop Navigation */}
@@ -85,6 +85,12 @@ export default function Navbar() {
                 className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition"
               >
                 Partner With Us
+              </Link>
+              <Link
+                to="/shuttle-pricing"
+                className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition"
+              >
+                Shuttle Pricing
               </Link>
             </div>
           </div>
@@ -128,6 +134,9 @@ export default function Navbar() {
           </Link>
           <Link to="/sponsor" className="hover:text-yellow-400" onClick={closeMenu}>
             Partner With Us
+          </Link>
+          <Link to="/shuttle-pricing" className="hover:text-yellow-400" onClick={closeMenu}>
+            Shuttle Pricing
           </Link>
           <button
             onClick={() => {
