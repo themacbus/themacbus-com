@@ -8,6 +8,7 @@ import CommunityPage from "./pages/CommunityPage";
 import SponsorPage from "./pages/SponsorPage";
 import HomePage from "./pages/HomePage";
 import ShuttlePricing from "./pages/ShuttlePricing";
+import About from "./pages/About"; // ✅ Step 1: Import About page
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/sponsor" element={<SponsorPage />} />
         <Route path="/shuttle-pricing" element={<ShuttlePricing />} />
+                <Route path="/about" element={<About />} /> {/* ✅ Step 2: Add About route */}
       </Routes>
     </Router>
   );
