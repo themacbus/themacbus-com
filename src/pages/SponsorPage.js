@@ -44,7 +44,7 @@ export default function SponsorPage() {
       </section>
 
       <footer className="text-center py-6 text-gray-600 dark:text-gray-400 border-t border-gray-300 dark:border-gray-700">
-        &copy; {new Date().getFullYear()} The Transporter | A division of The MAC Bus, Inc.
+        &copy; {new Date().getFullYear()} The Transporter 
       </footer>
     </main>
   );

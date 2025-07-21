@@ -16,7 +16,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 py-24 px-6 text-center rounded-b-3xl shadow-lg max-w-5xl mx-auto my-12">
         <h1 className="text-5xl font-extrabold mb-4 tracking-tight drop-shadow-md">
-          Reliable, Affordable, Luxury Transportation
+          Reliable, Affordable, and Luxury Transportation
         </h1>
         <p className="max-w-3xl mx-auto text-lg mb-8">
           Whether you’re commuting to work, attending an event, or traveling in style, The Transporter has a service that fits your needs. Serving communities across Mississippi.
@@ -67,7 +67,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="text-center py-6 text-gray-600 dark:text-gray-400 border-t border-gray-300 dark:border-gray-700 max-w-5xl mx-auto">
-        &copy; {new Date().getFullYear()} The Transporter | A division of The MAC Bus, Inc.
+        &copy; {new Date().getFullYear()} The Transporter 
       </footer>
     </main>
   );
