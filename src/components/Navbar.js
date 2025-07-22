@@ -63,6 +63,18 @@ export default function Navbar() {
               }`}
             >
               <Link
+                to="/about"
+                className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition"
+              >
+                About Us
+              </Link>
+              <Link
+                to="/now-hiring"
+                className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition"
+              >
+                Now Hiring
+              </Link>
+              <Link
                 to="/routes"
                 className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition"
               >
@@ -91,12 +103,6 @@ export default function Navbar() {
                 className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition"
               >
                 Shuttle Pricing
-              </Link>
-              <Link
-                to="/about"
-                className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition"
-              >
-                About Us
               </Link>
             </div>
           </div>
@@ -129,6 +135,12 @@ export default function Navbar() {
         }`}
       >
         <nav className="px-4 pb-4 pt-2 flex flex-col space-y-3 text-white">
+          <Link to="/about" className="hover:text-yellow-400" onClick={closeMenu}>
+            About Us
+          </Link>
+          <Link to="/now-hiring" className="hover:text-yellow-400" onClick={closeMenu}>
+            Now Hiring
+          </Link>
           <Link to="/routes" className="hover:text-yellow-400" onClick={closeMenu}>
             View Routes
           </Link>
@@ -143,9 +155,6 @@ export default function Navbar() {
           </Link>
           <Link to="/shuttle-pricing" className="hover:text-yellow-400" onClick={closeMenu}>
             Shuttle Pricing
-          </Link>
-          <Link to="/about" className="hover:text-yellow-400" onClick={closeMenu}>
-            About Us
           </Link>
           <button
             onClick={() => {
