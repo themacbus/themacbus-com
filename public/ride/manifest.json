@@ -1,0 +1,13 @@
+{
+  "name": "Aye, Let’s Ride – MAC Bus",
+  "short_name": "MAC Bus Ride",
+  "start_url": "/ride/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2d2d2d",
+  "icons": [{
+    "src": "static/icon.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}

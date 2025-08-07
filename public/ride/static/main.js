@@ -1,0 +1,1 @@
+console.log("MAC Bus Ride PWA Loaded");
