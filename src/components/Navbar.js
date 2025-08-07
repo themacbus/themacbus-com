@@ -28,7 +28,6 @@ export default function Navbar() {
     setDropdownOpen(false);
   }, [location.pathname]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -62,6 +61,12 @@ export default function Navbar() {
                 dropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
               }`}
             >
+              <Link
+                to="/ride"
+                className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition font-semibold"
+              >
+                🚐 Ride Request
+              </Link>
               <Link
                 to="/about"
                 className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition"
@@ -135,6 +140,9 @@ export default function Navbar() {
         }`}
       >
         <nav className="px-4 pb-4 pt-2 flex flex-col space-y-3 text-white">
+          <Link to="/ride" className="hover:text-yellow-400" onClick={closeMenu}>
+            🚐 Ride Request
+          </Link>
           <Link to="/about" className="hover:text-yellow-400" onClick={closeMenu}>
             About Us
           </Link>

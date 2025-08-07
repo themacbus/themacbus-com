@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage";
 import ShuttlePricing from "./pages/ShuttlePricing";
 import About from "./pages/About"; // ✅ Step 1: Import About page
 import NowHiring from "./pages/NowHiring";
+import AyeLetsRide from "./pages/AyeLetsRide";
 export default function App() {
   return (
     <Router>
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/shuttle-pricing" element={<ShuttlePricing />} />
                 <Route path="/about" element={<About />} /> {/* ✅ Step 2: Add About route */}
                 <Route path="/now-hiring" element={<NowHiring />} />
+                <Route path="/ride" element={<AyeLetsRide />} />
       </Routes>
     </Router>
   );
