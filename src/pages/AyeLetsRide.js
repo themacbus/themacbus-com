@@ -22,8 +22,15 @@ export default function AyeLetsRideApp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!formData.agree) {
+      alert('You must agree to the Beat the Clock Terms & Conditions before submitting.');
+      return;
+    }
+
     console.log("Submitted Ride Request:", formData);
     alert("Your ride request has been submitted!");
+    // You can add your form submission logic here
   };
 
   return (
@@ -64,6 +71,7 @@ export default function AyeLetsRideApp() {
           value={formData.phone}
           onChange={handleChange}
         />
+
         <label className="flex items-center space-x-2">
           <input
             type="checkbox"
@@ -73,9 +81,18 @@ export default function AyeLetsRideApp() {
             required
           />
           <span className="text-sm">
-            I agree to the “Beat the Clock – 60 Minute Challenge” terms
+            I agree to the{' '}
+            <a
+              href="/terms.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              Beat the Clock – 60 Minute Challenge Terms & Conditions
+            </a>
           </span>
         </label>
+
         <Button type="submit" className="w-full">
           Submit Ride Request
         </Button>
