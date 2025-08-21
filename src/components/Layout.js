@@ -13,9 +13,42 @@ export default function Layout({ children }) {
         {children}
       </main>
 
-      {/* Optional footer */}
-      <footer className="bg-gray-800 dark:bg-gray-900 text-gray-300 text-center p-4 mt-8">
-        © {new Date().getFullYear()} The Transporter — All rights reserved.
+      {/* Footer */}
+      <footer className="bg-gray-800 dark:bg-gray-900 text-gray-300 text-center p-6 mt-8">
+        <p className="mb-3">
+          © {new Date().getFullYear()} The Transporter — All rights reserved.
+        </p>
+        <nav>
+          <ul className="flex justify-center gap-6 text-sm">
+            <li>
+              <a
+                href="/privacy"
+                className="hover:underline"
+              >
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a
+                href="/terms"
+                className="hover:underline"
+              >
+                Terms of Service
+              </a>
+            </li>
+            {/* 🔗 New Survey Link */}
+            <li>
+              <a
+                href="https://tinyurl.com/The-MAC-Survey"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                📋 Community Survey
+              </a>
+            </li>
+          </ul>
+        </nav>
       </footer>
     </div>
   );
