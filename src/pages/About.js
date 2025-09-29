@@ -86,7 +86,7 @@ export default function About() {
           </motion.h2>
           <p>
             The McFarlins live in <strong>Chesapeake, Virginia</strong> with their two children,{" "}
-            <strong>Henry and Takota</strong>, and three beloved dogs. With deep roots in{" "}
+            <strong>Henry and Takota</strong>. With deep roots in{" "}
             <strong>Mississippi</strong> and a heart for <strong>underserved communities</strong>, they
             are actively <strong>relocating to Moss Point, MS</strong>, to help rebuild and reimagine
             what local transportation can look like for the Gulf Coast.

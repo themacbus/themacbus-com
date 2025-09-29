@@ -89,12 +89,8 @@ export default function Navbar() {
                 to="/invest"
                 className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition"
               >
-                Invest in Mobility
-              </Link>
-              <Link
-                to="/community"
-                className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition"
-              >
+               Invest in Mobility </Link> <Link to="/community" className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition" > 
+              
                 Our Future
               </Link>
               <Link

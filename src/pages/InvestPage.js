@@ -34,16 +34,28 @@ export default function InvestPage() {
         <p className="max-w-2xl mx-auto mb-8">
           Ready to invest or learn more about partnership opportunities? We’re here to answer your questions and collaborate for impact.
         </p>
-        <a
-          href="mailto:tmac@themacbus.org"
-          className="inline-block bg-gray-900 text-yellow-400 font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-gray-800 transition transform hover:-translate-y-1"
-        >
-          Contact Us
-        </a>
+
+        {/* ✅ New Donate Now button */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="mailto:tmac@themacbus.org"
+            className="inline-block bg-gray-900 text-yellow-400 font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-gray-800 transition transform hover:-translate-y-1"
+          >
+            Contact Us
+          </a>
+          <a
+            href="https://square.link/u/nuB6TavB"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-gray-900 font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-gray-100 transition transform hover:-translate-y-1"
+          >
+            Donate Now
+          </a>
+        </div>
       </section>
 
       <footer className="text-center py-6 text-gray-600 dark:text-gray-400 border-t border-gray-300 dark:border-gray-700">
-        &copy; {new Date().getFullYear()} The Transporter 
+        &copy; {new Date().getFullYear()} The Transporter
       </footer>
     </main>
   );
