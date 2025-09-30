@@ -26,10 +26,7 @@ export default function App() {
         <Route path="/aye-lets-ride" element={<AyeLetsRide />} /> {/* ✅ New Page */}
         
         {/* ✅ Redirect /ride to the external Aye Let's Ride app */}
-        <Route
-          path="/ride"
-          element={<Navigate to="https://ayelletsride.app.link" replace />}
-        />
+      
       </Routes>
     </Router>
   );
