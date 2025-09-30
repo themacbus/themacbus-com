@@ -9,7 +9,7 @@ import HomePage from "./pages/HomePage";
 import ShuttlePricing from "./pages/ShuttlePricing";
 import About from "./pages/About"; 
 import NowHiring from "./pages/NowHiring";
-import AyeLetsRide from "./pages/AyeLetsRide"; // ✅ import new page
+import AyeLetsRide from "./pages/AyeLetsRide"; // ✅ redirect page
 
 export default function App() {
   return (
@@ -23,10 +23,13 @@ export default function App() {
         <Route path="/shuttle-pricing" element={<ShuttlePricing />} />
         <Route path="/about" element={<About />} />
         <Route path="/now-hiring" element={<NowHiring />} />
-        <Route path="/aye-lets-ride" element={<AyeLetsRide />} /> {/* ✅ New Page */}
-        
-        {/* ✅ Redirect /ride to the external Aye Let's Ride app */}
-      
+
+        {/* ✅ Main Ride Request page */}
+        <Route path="/ayeletsride" element={<AyeLetsRide />} />
+
+        {/* ✅ Redirects so nothing breaks */}
+        <Route path="/aye-lets-ride" element={<Navigate to="/ayeletsride" replace />} />
+        <Route path="/ride" element={<Navigate to="/ayeletsride" replace />} />
       </Routes>
     </Router>
   );

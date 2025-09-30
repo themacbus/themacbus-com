@@ -62,7 +62,7 @@ export default function Navbar() {
               }`}
             >
               <Link
-                to="/ride"
+                to="/ayeletsride"
                 className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition font-semibold"
               >
                 🚐 Ride Request
@@ -89,8 +89,12 @@ export default function Navbar() {
                 to="/invest"
                 className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition"
               >
-               Invest in Mobility </Link> <Link to="/community" className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition" > 
-              
+                Invest in Mobility
+              </Link>
+              <Link
+                to="/community"
+                className="block px-4 py-2 hover:bg-yellow-500 hover:text-gray-900 transition"
+              >
                 Our Future
               </Link>
               <Link
@@ -136,7 +140,7 @@ export default function Navbar() {
         }`}
       >
         <nav className="px-4 pb-4 pt-2 flex flex-col space-y-3 text-white">
-          <Link to="/ride" className="hover:text-yellow-400" onClick={closeMenu}>
+          <Link to="/ayeletsride" className="hover:text-yellow-400" onClick={closeMenu}>
             🚐 Ride Request
           </Link>
           <Link to="/about" className="hover:text-yellow-400" onClick={closeMenu}>
