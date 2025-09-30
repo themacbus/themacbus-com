@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 
-export default function AyeLetsRideApp() {
+export default function AyeLetsRide() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastInitial: '',
-    address: '',
-    pickupTime: '',
-    phone: '',
+    firstName: "",
+    lastInitial: "",
+    address: "",
+    pickupTime: "",
+    phone: "",
     agree: false,
   });
 
@@ -16,7 +16,7 @@ export default function AyeLetsRideApp() {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -24,18 +24,22 @@ export default function AyeLetsRideApp() {
     e.preventDefault();
 
     if (!formData.agree) {
-      alert('You must agree to the Beat the Clock Terms & Conditions before submitting.');
+      alert(
+        "You must agree to the Beat the Clock Terms & Conditions before submitting."
+      );
       return;
     }
 
     console.log("Submitted Ride Request:", formData);
     alert("Your ride request has been submitted!");
-    // You can add your form submission logic here
+    // TODO: Hook this up to backend / email / API
   };
 
   return (
     <div className="p-4 max-w-md mx-auto">
-      <h1 className="text-xl font-bold mb-4">Aye, Let’s Ride – MAC Bus Request</h1>
+      <h1 className="text-xl font-bold mb-4">
+        Aye, Let’s Ride – MAC Bus Request
+      </h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <Input
           name="firstName"
@@ -81,7 +85,7 @@ export default function AyeLetsRideApp() {
             required
           />
           <span className="text-sm">
-            I agree to the{' '}
+            I agree to the{" "}
             <a
               href="/terms.html"
               target="_blank"
