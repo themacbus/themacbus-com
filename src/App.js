@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import ShuttlePricing from "./pages/ShuttlePricing";
 import About from "./pages/About"; 
 import NowHiring from "./pages/NowHiring";
+import AyeLetsRide from "./pages/AyeLetsRide"; // ✅ import new page
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/shuttle-pricing" element={<ShuttlePricing />} />
         <Route path="/about" element={<About />} />
         <Route path="/now-hiring" element={<NowHiring />} />
+        <Route path="/aye-lets-ride" element={<AyeLetsRide />} /> {/* ✅ New Page */}
         
         {/* ✅ Redirect /ride to the external Aye Let's Ride app */}
         <Route
